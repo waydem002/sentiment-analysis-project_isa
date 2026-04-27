@@ -5,6 +5,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline, make_pipeline
 import os
+import system
+from typing import Tuple
 from joblib import dump
 
 
@@ -78,3 +80,10 @@ def main(data_path: str, model_path: str) -> None:
     print(f"Test accuracy: {acc:.3f}")
 
     save_model(clf, model_path)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Train sentiment model")
+    parser.add_argument("--data", default="data/sentiments.csv", help="Path to CSV with text,label")
+    parser.add_argument("--out", default="models/sentiment.joblib", help="Path to save trained model")
+    args = parser.parse_args()
+    main(data_path=args.data, model_path=args.out)
