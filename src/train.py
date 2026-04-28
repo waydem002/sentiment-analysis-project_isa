@@ -5,8 +5,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline, make_pipeline
 import os
-import system
-from typing import Tuple
 from joblib import dump
 
 
